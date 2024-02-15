@@ -1,0 +1,72 @@
+.calc__voltar > a > button {
+    width: 10rem;
+    height: 2rem;
+    margin:1rem 1rem;
+    background-color: #58385d;
+    color: #ffff;
+    border-radius: 8px;
+    box-shadow: 2px 4px 2px #000000;
+    text-shadow: 1px 1px 2px #000000;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: 50%;
+}
+
+button:active {
+    position: relative;
+    top: 5px;
+}
+
+.calc__container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.calc__form {
+    background-color: #ffff;
+    width: 500px;
+    height: 800px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.calc__form > form {
+    display: flex;
+    flex-direction: column;
+}
+
+.calc__form label, .calc__form input, .calc__form button {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.calc__form input[type="radio"],
+.calc__form input[type="number"],
+.calc__form input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.calc__form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.calc__form button:hover {
+    background-color: #45a049;
+}
