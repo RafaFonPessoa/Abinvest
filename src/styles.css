@@ -9,4 +9,5 @@ body {
     background-image: url("./assets/imgs/layered-waves-haikei.svg");
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }

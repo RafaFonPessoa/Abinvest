@@ -1,7 +1,15 @@
-.calc__voltar > a > button {
+
+.form__button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.calc__voltar > a > button,
+.calc__form button {
     width: 10rem;
     height: 2rem;
-    margin:1rem 1rem;
+    margin: 1rem;
     background-color: #58385d;
     color: #ffff;
     border-radius: 8px;
@@ -9,12 +17,12 @@
     text-shadow: 1px 1px 2px #000000;
 }
 
-button:hover {
+.calc__form button:hover {
     cursor: pointer;
-    opacity: 50%;
+    opacity: 0.5;
 }
 
-button:active {
+.calc__form button:active {
     position: relative;
     top: 5px;
 }
@@ -29,12 +37,13 @@ button:active {
 }
 
 .calc__form {
-    background-color: #ffff;
+    background-color: #fff;
     width: 500px;
     height: 800px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
+    padding: 20px; /* Adicionado padding */
 }
 
 .calc__form > form {
@@ -42,7 +51,11 @@ button:active {
     flex-direction: column;
 }
 
-.calc__form label, .calc__form input, .calc__form button {
+.calc__form label,
+.calc__form input[type="radio"],
+.calc__form input[type="number"],
+.calc__form input[type="text"],
+.calc__form button {
     display: block;
     margin-bottom: 10px;
 }
@@ -57,16 +70,58 @@ button:active {
     box-sizing: border-box;
 }
 
-.calc__form button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    padding: 10px 20px;
-    font-size: 16px;
+/* Estilos para dispositivos móveis */
+@media screen and (max-width: 768px) {
+    .calc__voltar > a > button,
+    .calc__form button {
+        width: 100%;
+        height: 2.5rem;
+    }
+
+    .calc__form {
+        width: 90%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .calc__form label,
+    .calc__form input[type="radio"],
+    .calc__form input[type="number"],
+    .calc__form input[type="text"],
+    .calc__form button {
+        margin-bottom: 15px;
+    }
 }
 
-.calc__form button:hover {
-    background-color: #45a049;
+/* Estilos para dispositivos de tela grande (PCs) */
+@media screen and (min-width: 769px) {
+    .calc__voltar > a > button,
+    .calc__form button {
+        width: 10rem;
+        height: 2rem;
+    }
+
+    .calc__form {
+        width: 500px;
+        height: 600px;
+    }
+}
+
+select {
+    padding: 8px; 
+    font-size: 16px; 
+    border: 1px solid #ccc;
+    border-radius: 4px; 
+    background-color: #fff; 
+    color: #333; 
+    cursor: pointer; 
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+
+select:focus {
+    outline: none; 
+    border-color: #5897fb;
+    box-shadow: 0 0 5px #5897fb; 
 }

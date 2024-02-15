@@ -6,36 +6,59 @@
     <div class="calc__form">
         <form action="">
             <h3>Tipo de investimento </h3>
-            <input type="radio" id="cdb" name="tipoInvestimento">
-            <label for="cdb">CDB</label>
-
-            <input type="radio" id="lci-lca" name="tipoInvestimento">
-            <label for="lci-lca">LCI/LCA</label>
-            
-            <input type="radio" id="tesouro-direto" name="tipoInvestimento">
-            <label for="tesouro-direto">Tesouro Direto</label>
-            
-            <h3>É PRÉ fixado ou PÓS fixado?</h3>
-
-            <input type="radio" id="pre" name="tipoRendimento">
-            <label for="pre">Pré</label>
-
-            <input type="radio" id="pos" name="tipoRendimento">
-            <label for="pos">Pós</label>
-            
-            <label for="investimento-inicial">Investimento Inicial (R$)</label>
-            <input type="number" id="investimento-inicial">
-
-            <label for="prazo">Prazo (meses)</label>
-            <input type="number" id="prazo">
+            <select id="tipoInvestimento" (change)="tipoInvestimentoSelecionado($event)">
+                <option value="cdb">CDB</option>
+                <option value="lci-lca">LCI/LCA</option>
+                <option value="tesouro-direto">Tesouro Direto</option>
+            </select>
+                        
+            <label for="investimento-inicial">Valor Aplicado (R$)</label>
+            <input type="number" id="investimento-inicial" min="0" placeholder="Ex:500.00">
 
             <label for="investimento-mensal">Investimento Mensal (R$)</label>
-            <input type="number" id="investimento-mensal">
+            <input type="number" id="investimento-mensal" min="0" placeholder="Ex:100.00">
             
-            <label for="rentabilidade">Rentabilidade (%)</label>
-            <input type="number" id="rentabilidade">
+
+            <label for="prazo">Prazo (meses)</label>
+            <input type="number" id="prazo" min="0">
+
+            <h3>Tipo de rentabilidade</h3>
+
+            <select id="tipoRendimento" (change)="tipoRendimentoSelecionado($event)">
+                <option value="pre">Pré</option>
+                <option value="pos">Pós</option>
+                <option value="ipcamais">IPCA+</option>
+                <option value="tesouroSelic">Selic</option>
+            </select>
+
+            <div *ngIf="preFixado">
+                <label for="preFixadoInput">Taxa (%a.a)</label>
+                <input type="text" id="preFixadoInput" placeholder="Ex:11">
+                <span>Título prefixados rendem conforme uma taxa fixa combinada no momento da compra.</span>
+            </div>
+
+            <div *ngIf="posFixado">
+                <label for="posFixadoInput">Taxa do CDI (%)</label>
+                <input type="text" id="posFixadoInput" placeholder="Ex:110">
+                <span>Título pós-fixados rendem de acordo com uma porcentagem do CDI. Estamos considerando o CDI como 11.15%.</span>
+            </div>
+
+            <div *ngIf="ipcamais">
+                <label for="ipcaMaisInput">Taxa (%a.a)</label>
+                <input type="text" id="ipcaMaisInput" placeholder="Ex:11">
+                <span>Título IPCA+ rendem de acordo com uma porcentagem do CDI. Estamos considerando o IPCA a 0.75% + o valor abaixo</span>
+            </div>
+
+            <div *ngIf="tesouroSelic">
+                <label for="selicInput">Taxa Selic (%)</label>
+                <input type="text" id="selicInput" placeholder="Ex:110">
+                <span>Título Selic rendem de acordo com uma porcentagem da Selic. Estamos considerando a Selic como 11.25% + o valor abaixo.</span>
+            </div>
+
+            <div class="form__button">
+                <button>Calcular</button>
+            </div>
             
-            <button>Calcular</button>
         </form>
     </div>
 </div>

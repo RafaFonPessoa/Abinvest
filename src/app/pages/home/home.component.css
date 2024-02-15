@@ -51,7 +51,20 @@ button:active {
     justify-content: center;
     align-items: center;
     width: 100%;
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    margin-bottom: 20px;
+    padding: 20px;
+    color: white; 
+}
+
+.home__footer a {
+    color: white;
+    text-decoration: none; 
+    margin: 0 10px; 
+}
+
+
+.home__footer a:hover {
+    text-decoration: underline; 
+    cursor: pointer;
 }
